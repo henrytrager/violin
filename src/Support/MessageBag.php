@@ -52,7 +52,7 @@ class MessageBag implements MessageBagContract
     public function first($key = null)
     {
         $messages = is_null($key) ? $this->all() : $this->get($key);
-        return (count($messages) > 0) ? $messages[0] : null;
+        return (is_array($messages) && count($messages) > 0) ? $messages[0] : null;
     }
 
     /**
